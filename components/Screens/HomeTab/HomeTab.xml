@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="HomeTab" extends="BaseTab">
+    <script type="text/brightscript" uri="HomeTab.brs" />
+    <interface>
+
+    </interface>
+    <children>
+        <RowList
+            id="rowList"
+            translation="[300, 200]"
+            itemComponentName="RowListBaseItemComponent"
+            rowFocusAnimationStyle="floatingFocus"
+            vertFocusAnimationStyle="fixedFocusWrap"
+            numRows="3"
+            itemSize="[600, 420]"
+            rowHeights="[420]"
+            rowItemSize="[[300, 420]]"
+            rowItemSpacing="[ [30, 0] ]"
+            itemSpacing="[0, 60]" />
+    </children>
+
+</component>

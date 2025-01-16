@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="RowListBaseItemComponent" extends="Group">
+    <script type="text/brightscript" uri="RowListBaseItemComponent.brs" />
+    <script type="text/brightscript" uri="pkg:/source/enums/ContentTypeEnum.brs" />
+    <interface>
+        <field id="itemContent" type="node" onChange="onItemContentChange" />
+    </interface>
+    <children>
+        <LayoutGroup id="container"
+            itemSpacings="[9, 3]"/>
+    </children>
+
+</component>

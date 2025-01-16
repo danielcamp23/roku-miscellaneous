@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="MenuItemComponent" extends="Group">
+    <script type="text/brightscript" uri="MenuItemComponent.brs" />
+    <interface>
+        <field id="itemContent" type="node" onChange="onItemContentChange" />
+    </interface>
+    <children>
+        <Label
+            id="title"
+            width="300"
+            height="100" />
+    </children>
+
+</component>

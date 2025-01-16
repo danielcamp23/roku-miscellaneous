@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ContentHero" extends="Group">
+    <script type="text/brightscript" uri="ContentHero.brs" />
+    <script type="text/brightscript" uri="pkg:/source/enums/ContentTypeEnum.brs" />
+    <interface>
+        <field id="content" type="node" onChange="onContentChange" />
+    </interface>
+    <children>
+        <Poster id="image"
+            width="1200"
+            height="402"
+            loadDisplayMode="scaleToFill" />
+
+        <LayoutGroup>
+            <Label id="title" />
+            <Label id="description" />
+        </LayoutGroup>
+    </children>
+
+</component>

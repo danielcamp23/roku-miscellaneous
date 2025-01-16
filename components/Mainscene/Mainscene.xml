@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="MainScene" extends="Scene" >
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="Router.brs" />
+    <interface>
+        <!-- set possible values here -->
+    </interface>
+    <children>
+        <Group id="screenContainer" />
+    </children>
+</component>

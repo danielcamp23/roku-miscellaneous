@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ProductContentNode" extends="ContentNode">
+    <interface>
+        <field id="type" type="string" />
+    </interface>
+</component>

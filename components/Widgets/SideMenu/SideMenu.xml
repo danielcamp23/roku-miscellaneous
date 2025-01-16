@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="SideMenu" extends="Group">
+    <script type="text/brightscript" uri="sideMenu.brs" />
+
+    <interface>
+        <field id="itemSelected" type="node" />
+    </interface>
+
+    <children>
+        <TargetList
+            id="menuList"
+            translation="[15, 200]"
+            itemComponentName="MenuItemComponent"
+            advanceKey="down"
+            reverseKey="up" />
+    </children>
+</component>

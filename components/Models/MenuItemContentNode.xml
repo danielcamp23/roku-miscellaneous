@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="MenuItemContentNode" extends="ContentNode">
+    <interface>
+        <field id="itemName" type="string" />
+        <field id="tabName" type="string" />
+        <field id="itemLogo" type="string" />
+    </interface>
+</component>

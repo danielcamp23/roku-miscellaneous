@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ContentRepo" extends="ContentNode">
+    <script type="text/brightscript" uri="ContentRepo.brs" />
+    <interface>
+        <field id="content" type="node" />
+        <function name="getHomeContent" />
+        <function name="getNextHorizontalPage" />
+        <function name="searchMovie" />
+    </interface>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="MainTabScreen" extends="BaseScreen">
+    <script type="text/brightscript" uri="MainTabScreen.brs" />
+    <script type="text/brightscript" uri="TabController.brs" />
+    <interface>
+
+    </interface>
+    <children>
+        <Group id="container"
+            translation="[99, 0]" />
+
+        <SideMenu id="menu" />
+    </children>
+
+</component>

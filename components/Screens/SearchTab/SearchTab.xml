@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="SearchTab" extends="BaseTab">
+    <script type="text/brightscript" uri="SearchTab.brs" />
+    <interface>
+
+    </interface>
+    <children>
+        <DynamicMiniKeyboard id="keyboard"
+            translation="[0, 270]" />
+
+        <ContentHero id="hero"
+            translation="[603, 99]"/>
+
+        <MarkupGrid id="markupGrid"
+            translation="[603, 531]"
+            itemComponentName="GridItemComponent"
+            itemSize="[280, 320]"
+            numColumns="4"
+            numRows="3"
+            rowSpacings="[15]"
+            columnSpacings="[15]" />
+    </children>
+
+</component>

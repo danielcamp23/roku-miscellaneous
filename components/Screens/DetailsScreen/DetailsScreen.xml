@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="DetailsScreen" extends="BaseScreen">
+    <script type="text/brightscript" uri="DetailsScreen.brs" />
+    <interface>
+        <!-- <field id="_onCreate" type="boolean" onChange="onCreate" /> -->
+        <!-- <field id="content" type="node" /> -->
+    </interface>
+
+    <children>
+        <Poster id="poster"
+            translation="[300, 200]"
+            width="1520"
+            height="700"
+            loadDisplayMode="scaleToFill" />
+
+        <LayoutGroup>
+            <AppLabel id="title"
+                fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                fontSize="72"
+                width="1200"
+                maxLines="2" />
+            <AppLabel id="description"
+                fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
+                fontSize="60"
+                width="1200"
+                maxLines="2" />
+            </LayoutGroup>
+    </children>
+
+</component>

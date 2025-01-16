@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="AppLabel" extends="Group">
+    <interface>
+        <field id="fontUri" type="string" alias="font.uri" />
+        <field id="fontSize" type="integer" alias="font.size"/>
+        <field id="width" type="integer" alias="label.width" />
+        <field id="height" type="integer" alias="label.height" />
+        <field id="text" type="string" alias="label.text" />
+        <field id="maxLines" type="string" alias="label.maxLines" />
+        <field id="wrap" type="string" alias="label.wrap" />
+        <field id="lineSpacing" type="string" alias="label.lineSpacing" />
+    </interface>
+    <children>
+        <Label id="label" >
+            <Font id="font" role="font" />
+        </Label>
+    </children>
+</component>

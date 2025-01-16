@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="HttpTask" extends="Task">
+    <script type="text/brightscript" uri="HttpTask.brs" />
+    <script type="text/brightscript" uri="pkg:/source/Utils/TypeUtils.brs" />
+    <script type="text/brightscript" uri="pkg:/source/Services/HttpComponent.brs" />
+    <interface>
+        <field id="content" type="node" />
+    </interface>
+    <children>
+        <DynamicMiniKeyboard id="keyboard"
+            translation="[100, 100]" />
+
+        <ContentHero id="hero"
+            translation="[700, 100]"/>
+    </children>
+
+</component>
