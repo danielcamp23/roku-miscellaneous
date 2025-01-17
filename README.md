@@ -31,7 +31,7 @@ This state is to trigger the LoadContent in the screens.
 ### onPause
 This state is for when the screens are unmounted. Unmounted screens should do certain actions, like stop observing screen content changes. You can refer to the Details screen and VideoPlayer screens. When from the Details screen the user goes to play a video, the Details screen's content node is passed to the Video Player screen, in the later screen, the content node is being updated with video position changes which in theory should trigger content node updates in the Details screen. This is avoid by Pausing the Details page
 
-## onResume
+### onResume
 This event is generated when navigating back to the previous screen to resume observers and other flows
 
 ## Pagination
