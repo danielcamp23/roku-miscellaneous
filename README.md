@@ -45,10 +45,13 @@ There is no vertical pagination due to the limitation of the api used to feed th
 This has a MarkupGrid. The pagination adds new items in the grid, every time the user gets to the row before the last one available
 
 ## Repositories
+TODO
 
 ## Services
+Services are the components responsible for the data fetching. The way they are coded allow to make asynchronous http calls in a synchronous manner, which is more readble and understandable. Similar to an await instruction execution
 
 ## Content Tasks
+Content tasks rely on Services to fetch http data. Once the data is ready they are responsible to parse the data and build the data models that well be fed to the app
 
 ## Pending items and future improvements
 - Add a spinner to the Search and Details screen
