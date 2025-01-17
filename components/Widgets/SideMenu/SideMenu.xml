@@ -9,7 +9,7 @@
     <children>
         <Group id="container">
             <Poster
-                width="650"
+                width="450"
                 height="1080"
                 uri="pkg:/assets/images/backgrounds/menu-bg.png" />
 

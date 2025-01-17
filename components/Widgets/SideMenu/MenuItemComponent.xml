@@ -4,12 +4,19 @@
     <interface>
         <field id="itemContent" type="node" onChange="onItemContentChange" />
         <field id="itemHasFocus" type="boolean" onChange="onItemFocusChange" alwaysNotify="true" />
+        <field id="groupHasFocus" type="boolean" />
     </interface>
     <children>
-        <Label
-            id="title"
-            width="300"
-            height="100" />
+        <LayoutGroup id="container"
+            layoutDirection="horizontal"
+            itemSpacings="[12]"
+            vertAlignment="center">
+            <Label id="title" />
+            <Poster id="icon"
+                width="60"
+                height="60"
+                opacity="0.3" />
+            </LayoutGroup>
     </children>
 
 </component>

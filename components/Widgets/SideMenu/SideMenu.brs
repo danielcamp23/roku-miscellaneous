@@ -6,7 +6,9 @@ end sub
 
 sub _bindComponents()
     m.menuList = m.top.findNode("menuList")
+    m.container = m.top.findNode("container")
     m.trAnimation = m.top.findNode("trAnimation")
+    m.trInterpolator = m.top.findNode("trInterpolator")
 end sub
 
 sub _bindObservers()
@@ -57,13 +59,13 @@ function getMenuConfig() as object
             index: 0
             itemName: "Home"
             tabName: "HomeTab"
-            itemLogo: ""
+            itemLogo: "home-icon"
         }
         {
             index: 1
             itemName: "Search"
             tabName: "SearchTab"
-            itemLogo: ""
+            itemLogo: "search-icon"
         }
         ' {
         '     index: 2
@@ -113,7 +115,7 @@ function setupMenuItems() as object
         item.update({
             itemName: menuItem.itemName
             tabName: menuItem.tabName
-            itemLogo: menuItem.itemLogo
+            itemLogo: ["pkg:/assets/images/icons/", menuItem.itemLogo, ".png"].join("")
         })
     end for
 
@@ -121,10 +123,16 @@ function setupMenuItems() as object
 end function
 
 sub onFocusedChildChange()
+    initialTranslation = m.container.translation
+    finalTranslation = [-1, -1]
+
     if m.top.hasFocus()
         m.menuList.setFocus(true)
-        m.trAnimation.control = "run"
+        finalTranslation = [0, 0]
     else
-        m.trAnimation.control = "run"
+        finalTranslation = [-300, 0]
     end if
+
+    m.trInterpolator.keyValue = [initialTranslation, finalTranslation]
+    m.trAnimation.control = "start"
 end sub

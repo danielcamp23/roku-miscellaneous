@@ -53,7 +53,6 @@ This has a MarkupGrid. The pagination adds new items in the grid, every time the
 ## Pending items and future improvements
 - Add a spinner to the Search and Details screen
 - Improve focus handling to make it easier to assign the focus when navigating back
-- Add animation to the side menu
 - Add custom positions to the side menu items
 - Handle app errors
 - whenever a content task is run, the service has to be instantiated again. This has to be done because the urlTransfer is being recycled by the garbage collector. Find a way to avoid this
