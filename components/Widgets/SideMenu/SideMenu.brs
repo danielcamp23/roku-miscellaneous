@@ -24,7 +24,6 @@ end sub
 
 sub onMenuItemSelectedChange(event as object)
     itemSelected = event.getData()
-    ?"itemSelected is "itemSelected
 
     m.top.itemSelected = m.menuList.content.getChild(itemSelected)
 end sub
@@ -42,19 +41,11 @@ sub _setupView()
     focusedTargetSet3.targetRects = getTargetRects(3)
     focusedTargetSet3.focusIndex = 2
 
-    focusedTargetSet4 = createObject("roSGNode", "TargetSet")
-    focusedTargetSet4.targetRects = getTargetRects(4)
-    focusedTargetSet4.focusIndex = 3
-
-    focusedTargetSet5 = createObject("roSGNode", "TargetSet")
-    focusedTargetSet5.targetRects = getTargetRects(5)
-    focusedTargetSet5.focusIndex = 4
-
     unfocusedTargetSet = createObject("roSGNode", "TargetSet")
     unfocusedTargetSet.targetRects = getTargetRects(100)
 
 
-    m.menuList.focusedTargetSet = [ focusedTargetSet1, focusedTargetSet2, focusedTargetSet3, focusedTargetSet4 ]
+    m.menuList.focusedTargetSet = [ focusedTargetSet1, focusedTargetSet2, focusedTargetSet3 ]
     m.menuList.unfocusedTargetSet = unfocusedTargetSet
     m.menuList.targetSet = focusedTargetSet1
     m.menuList.showTargetRects = true
@@ -80,12 +71,6 @@ function getMenuConfig() as object
             index: 2
             itemName: "User"
             tabName: "UserTab"
-            itemLogo: ""
-        }
-
-        {
-            index: 3
-            itemName: "Dummy"
             itemLogo: ""
         }
     ]
@@ -116,7 +101,6 @@ function getTargetRects(targetSetIndex as integer)
         yAccum += height
 
         targetRect.push( {x: x, y: y, height: height, width: width } )
-        ' ?"last targetRect "targetRect.peek()
     end for
 
     return targetRect
