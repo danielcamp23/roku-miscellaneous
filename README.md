@@ -6,6 +6,8 @@ To do content search, the app is using the OMDb Api (https://www.omdbapi.com/).
 It is necessary to add an authorized api key to the queries.
 Once you get yours, in the config folder, duplicate the omdb-example.json file and rename it to omdb.json; add your api key in that file
 
+To make a content search, at least 4 letters have to be typed in
+
 # Roku launch config
 Duplicate the .env.example file and rename it to .env
 Add your device's IP address and passworkd to this file
@@ -58,6 +60,6 @@ Content tasks rely on Services to fetch http data. Once the data is ready they a
 - Improve focus handling to make it easier to assign the focus when navigating back
 - Add custom positions to the side menu items
 - Handle app errors
-- whenever a content task is run, the service has to be instantiated again. This has to be done because the urlTransfer is being recycled by the garbage collector. Find a way to avoid this
+- Whenever a content task is run, the service has to be instantiated again. This has to be done because the urlTransfer is being recycled by the garbage collector. Find a way to avoid this
 
 
