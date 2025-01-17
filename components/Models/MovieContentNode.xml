@@ -5,5 +5,6 @@
         <field id="description" type="string" />
         <field id="actors" type="roarray" />
         <field id="director" type="string" />
+        <field id="videoProgress" type="float" />
     </interface>
 </component>

@@ -36,8 +36,12 @@ sub loadContent()
 end sub
 
 ' Override to make the tab controllor handle the reAttach event
-sub onReattach()
+sub onResume()
     m.tabController.reAttachSection()
+end sub
+
+sub onPause()
+    m.tabController.pauseSection()
 end sub
 
 sub initializeTabController()

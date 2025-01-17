@@ -12,8 +12,6 @@ function router(screenContainer as object) as object
 
         navigateToScreen: _navigateToScreen
 
-        navigateToSection: _navigateToSection
-
         navigateToEntryPoint: _navigateToEntryPoint
 
         goBackToPreviousScreen: _goBackToPreviousScreen
@@ -37,21 +35,6 @@ function _navigateToEntryPoint(entryPointOptions as object)
     m.navigateToScreen(navigateOptions)
 end function
 
-function _navigateToSection(navigateOptions as object) as object
-    newScreen = createObject("roSGNode", navigateOptions.screenName)
-    if newScreen = invalid then return invalid
-
-    if m.screenContainer.getChildCount() > 0 then m.screenContainer.removeChildrenIndex(m.screenContainer.getChildCount(), 0)
-
-    m.screenContainer.appendChild(newScreen)
-    newScreen.options = navigateOptions.screenOptions
-    newScreen._onCreate = true
-
-    newScreen.setFocus(true)
-
-    return newScreen
-end function
-
 function _navigateToScreen(navigateOptions as object) as object
     newScreen = createObject("roSGNode", navigateOptions.screenName)
     if newScreen = invalid then return invalid
@@ -59,6 +42,11 @@ function _navigateToScreen(navigateOptions as object) as object
     if m.screenContainer.getChildCount() > 0 then m.screenContainer.removeChildrenIndex(m.screenContainer.getChildCount(), 0)
 
     m.screenContainer.appendChild(newScreen)
+
+    ' Pause current screen
+    currentScreen = m.screenStack.peek()
+    if currentScreen <> invalid then currentScreen._onPause = true
+
     newScreen.options = navigateOptions.screenOptions
     newScreen.setFocus(true)
     newScreen._onCreate = true
@@ -76,7 +64,7 @@ function _goBackToPreviousScreen(navigateOptions = {} as object) as object
     if m.screenStack.count() > 0
         screenToShow = m.screenStack.peek()
         m.screenContainer.appendChild(screenToShow)
-        screenToShow._onReattach = true
+        screenToShow._onResume = true
     end if
 
     ' Return true if there are still screens in the stack

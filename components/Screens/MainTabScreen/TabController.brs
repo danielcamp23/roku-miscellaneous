@@ -14,6 +14,8 @@ function TabController(sectionContainer as object) as object
         getFocusedNode: _getFocusedNode
 
         reAttachSection: _reAttachSection
+
+        pauseSection: _pauseSection
     }
 end function
 
@@ -51,5 +53,10 @@ end function
 
 sub _reAttachSection()
     activeSection = m.sectionContainer.getChild(0)
-    if activeSection <> invalid then activeSection._onReattach = true
+    if activeSection <> invalid then activeSection._onResume = true
+end sub
+
+sub _pauseSection()
+    activeSection = m.sectionContainer.getChild(0)
+    if activeSection <> invalid then activeSection._onPause = true
 end sub

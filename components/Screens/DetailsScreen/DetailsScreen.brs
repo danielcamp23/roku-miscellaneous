@@ -21,6 +21,22 @@ end sub
 
 sub _initLocalVariables()
     m.searchRepo = m.global.searchRepo
+    m.currentVideoProgress = 0
+end sub
+
+' In the video player screen, the progress of the video is being continuely tracked.
+' Avoid page updates while that is happening
+sub onPause()
+    m.top.unobserveField("content")
+end sub
+
+sub onResume()
+    if m.top.content.videoProgress <> m.currentVideoProgress
+        progress = ["(", left((m.top.content.videoProgress * 100).toStr(), 4), "%)"].join("")
+        m.videoCTA.text = ["Continue Watching", progress].join(" ")
+    end if
+
+    m.videoCTA.setFocus(true)
 end sub
 
 sub loadContent()
@@ -41,6 +57,7 @@ sub getMovieDetails(movieId as object)
 end sub
 
 sub onContentChange()
+    ?"on content change in details screen"
     content = m.top.content
 
     m.poster.uri = content.fhdPosterUrl

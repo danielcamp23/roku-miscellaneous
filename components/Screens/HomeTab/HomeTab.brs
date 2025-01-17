@@ -10,6 +10,7 @@ sub _bindComponents()
 end sub
 
 sub _bindObservers()
+    m.top.observeField("content", "onContentChange")
     m.top.observeField("focusedChild", "onFocusedChildChange")
     m.rowList.observeField("focusedChild", "onFocusedChildChange")
     m.rowList.observeField("rowItemFocused", "onRowItemFocusedChange")

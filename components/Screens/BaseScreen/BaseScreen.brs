@@ -2,7 +2,6 @@ sub init()
     m.top.observeField("focusedChild", "onFocusedChildChange")
 end sub
 
-
 sub _bindComponents()
     ?"bind components in BaseScreen"
 end sub
@@ -29,8 +28,14 @@ sub onCreate()
     loadContent()
 end sub
 
-sub onReattach()
+' If overriden in extended screens, make sure to handle the focus
+sub onResume()
     if m.focusedNode <> invalid then m.focusedNode.setFocus(true)
+end sub
+
+' Override in extended screens
+sub onPause()
+
 end sub
 
 ' Override in extended screens

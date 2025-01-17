@@ -13,6 +13,7 @@ sub _bindComponents()
 end sub
 
 sub _bindObservers()
+    m.top.observeField("content", "onContentChange")
     m.keyboard.observeField("text", "onTextChange")
     m.markupGrid.observeField("itemFocused", "onItemFocusedChange")
     m.markupGrid.observeField("itemSelected", "onItemSelectedChange")
