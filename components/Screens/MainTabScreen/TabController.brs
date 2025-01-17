@@ -34,6 +34,8 @@ function _navigateTosection(navigateOptions as object)
 
     if sectionToShow = invalid
         sectionToShow = createObject("roSGNode", sectionName)
+        if sectionToShow = invalid then return invalid
+
         m.sectionStack.push(sectionToShow)
     end if
 

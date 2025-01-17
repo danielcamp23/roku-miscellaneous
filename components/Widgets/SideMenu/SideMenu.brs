@@ -35,15 +35,15 @@ sub _setupView()
     focusedTargetSet2.targetRects = getTargetRects(2)
     focusedTargetSet2.focusIndex = 1
 
-    focusedTargetSet3 = createObject("roSGNode", "TargetSet")
-    focusedTargetSet3.targetRects = getTargetRects(3)
-    focusedTargetSet3.focusIndex = 2
+    ' focusedTargetSet3 = createObject("roSGNode", "TargetSet")
+    ' focusedTargetSet3.targetRects = getTargetRects(3)
+    ' focusedTargetSet3.focusIndex = 2
 
     unfocusedTargetSet = createObject("roSGNode", "TargetSet")
     unfocusedTargetSet.targetRects = getTargetRects(100)
 
 
-    m.menuList.focusedTargetSet = [ focusedTargetSet1, focusedTargetSet2, focusedTargetSet3 ]
+    m.menuList.focusedTargetSet = [ focusedTargetSet1, focusedTargetSet2 ]
     m.menuList.unfocusedTargetSet = unfocusedTargetSet
     m.menuList.targetSet = focusedTargetSet1
     ' m.menuList.showTargetRects = true
@@ -65,12 +65,12 @@ function getMenuConfig() as object
             tabName: "SearchTab"
             itemLogo: ""
         }
-        {
-            index: 2
-            itemName: "User"
-            tabName: "UserTab"
-            itemLogo: ""
-        }
+        ' {
+        '     index: 2
+        '     itemName: "User"
+        '     tabName: "UserTab"
+        '     itemLogo: ""
+        ' }
     ]
 
     return menuOptions

@@ -3,6 +3,7 @@
     <script type="text/brightscript" uri="MenuItemComponent.brs" />
     <interface>
         <field id="itemContent" type="node" onChange="onItemContentChange" />
+        <field id="itemHasFocus" type="boolean" onChange="onItemFocusChange" alwaysNotify="true" />
     </interface>
     <children>
         <Label

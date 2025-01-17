@@ -1,7 +1,6 @@
 sub init()
     _bindComponents()
-    ' _bindObservers()
-    ' _setupView()
+    _bindObservers()
 end sub
 
 sub _bindComponents()
@@ -12,12 +11,17 @@ sub _bindObservers()
 
 end sub
 
-sub _setupView()
-
-end sub
 
 sub onItemContentChange(event as object)
     content = event.getData()
 
     m.title.text = content.itemName
+end sub
+
+sub onItemFocusChange(event as object)
+    if m.top.itemHasFocus
+        m.title.color = "#FFFFFF"
+    else
+        m.title.color = "#777777"
+    end if
 end sub
