@@ -1,10 +1,10 @@
-function SearchService()
+function SearchService(apiKey as string)
     return {
         httpComponent: HttpComponent()
 
         baseUrl: "https://www.omdbapi.com/"
 
-        apiKey: "41a58682"
+        apiKey: apiKey
 
         genericError: {
             statusCode: 400

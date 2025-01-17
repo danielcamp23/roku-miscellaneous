@@ -3,7 +3,7 @@ sub init()
 end sub
 
 sub searchMovies()
-    searchService = SearchService()
+    searchService = SearchService(m.top.omdbApiKey)
     searchArgs = m.top.searchArgs
 
     ' Add page argument to the search
@@ -20,7 +20,7 @@ sub searchMovies()
 end sub
 
 sub getNextPage()
-    searchService = SearchService()
+    searchService = SearchService(m.top.omdbApiKey)
     searchArgs = m.top.searchArgs
 
     searchArgs = {
@@ -34,7 +34,7 @@ sub getNextPage()
 end sub
 
 sub getMovieDetails()
-    searchService = SearchService()
+    searchService = SearchService(m.top.omdbApiKey)
     searchArgs = m.top.searchArgs
 
     detailsResponse = searchService.getMovieDetails(searchArgs)

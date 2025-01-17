@@ -17,7 +17,8 @@
                 "components/**/*.*",
                 "images/**/*.*",
                 "source/**/*.*",
-                "fonts/*.*"
+                "fonts/*.*",
+                "config/*.*"
             ]
         }
     ]

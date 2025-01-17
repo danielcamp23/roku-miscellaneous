@@ -4,6 +4,7 @@
     <script type="text/brightscript" uri="pkg:/source/utils/TypeUtils.brs" />
     <interface>
         <field id="content" type="node" />
+        <field id="omdbApiKey" type="string" />
         <function name="searchMovies" />
         <function name="getNextPage" />
         <function name="getMovieDetails" />

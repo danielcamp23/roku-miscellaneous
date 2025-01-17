@@ -6,6 +6,7 @@
      <script type="text/brightscript" uri="pkg:/source/Services/SearchService.brs" />
     <interface>
         <field id="searchArgs" type="assocarray" />
+        <field id="omdbApiKey" type="string" />
     </interface>
     <children>
     </children>

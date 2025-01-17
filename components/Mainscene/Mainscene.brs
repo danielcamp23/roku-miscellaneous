@@ -21,8 +21,12 @@ sub initializeGlobalField()
 end sub
 
 sub initializeRepos()
+    omdb = parseJson(readAsciiFile("pkg:/config/omdb.json"))
+
     m.global.contentRepo = createObject("roSGNode", "ContentRepo")
     m.global.searchRepo = createObject("roSGNode", "searchRepo")
+
+    m.global.searchRepo.omdbApiKey = omdb.apiKey
 end sub
 
 

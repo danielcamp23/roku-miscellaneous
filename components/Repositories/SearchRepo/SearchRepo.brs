@@ -1,5 +1,6 @@
 sub init()
     m.searchTask = createObject("roSGNode", "SearchTask")
+    m.searchTask.omdbApiKey = m.top.omdbApiKey
 
     m.searchQuery = "" ' Keep track of search query for later pagination
     m.sourceScreen = invalid
@@ -15,6 +16,7 @@ sub runTask(functionName as string, searchArgs as object)
     m.searchTask.unobserveField("content")
     m.searchTask.observeField("content", callbackMap[functionName])
 
+    m.searchTask.omdbApiKey = m.top.omdbApiKey
     m.searchTask.functionName = functionName
     m.searchTask.searchArgs = searchArgs
     m.searchTask.control = "RUN"
