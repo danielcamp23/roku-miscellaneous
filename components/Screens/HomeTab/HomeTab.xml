@@ -7,7 +7,7 @@
     <children>
         <RowList
             id="rowList"
-            translation="[300, 200]"
+            translation="[150, 201]"
             itemComponentName="RowListBaseItemComponent"
             rowFocusAnimationStyle="floatingFocus"
             vertFocusAnimationStyle="fixedFocusWrap"

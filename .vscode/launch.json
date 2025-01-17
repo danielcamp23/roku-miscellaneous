@@ -16,6 +16,7 @@
                 "manifest",
                 "components/**/*.*",
                 "images/**/*.*",
+                "assets/**/*.*",
                 "source/**/*.*",
                 "fonts/*.*",
                 "config/*.*"

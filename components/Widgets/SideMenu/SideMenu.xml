@@ -7,11 +7,27 @@
     </interface>
 
     <children>
-        <TargetList
-            id="menuList"
-            translation="[15, 200]"
-            itemComponentName="MenuItemComponent"
-            advanceKey="down"
-            reverseKey="up" />
+        <Group id="container">
+            <Poster
+                width="650"
+                height="1080"
+                uri="pkg:/assets/images/backgrounds/menu-bg.png" />
+
+            <TargetList
+                id="menuList"
+                translation="[15, 200]"
+                itemComponentName="MenuItemComponent"
+                advanceKey="down"
+                reverseKey="up" />
+        </Group>
+
+        <Animation id="trAnimation"
+            duration="0.5" >
+            <Vector2DFieldInterpolator
+                id="trInterpolator"
+                key="[0, 1]"
+                keyValue="[[0, 0], [-300, 0]]"
+                fieldToInterp="container.translation" />
+        </Animation>
     </children>
 </component>

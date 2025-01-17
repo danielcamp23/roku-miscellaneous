@@ -9,6 +9,7 @@ sub _bindComponents()
     m.hero = m.top.findNode("hero")
     m.keyboard = m.top.findNode("keyboard")
     m.markupGrid = m.top.findNode("markupGrid")
+    m.errorLabel = m.top.findNode("errorLabel")
 end sub
 
 sub _bindObservers()
@@ -18,15 +19,13 @@ sub _bindObservers()
 end sub
 
 sub _initLocalVariables()
+    m.searchRepo = m.global.searchRepo
+
     m.searchTimer = createObject("roSGNode", "Timer")
     m.searchTimer.duration = 3
     m.searchTimer.observeField("fire", "onTimerEvent")
 
-    m.searchRepo = m.global.searchRepo
-    m.itemFocused = {
-        previousFocusedRow: 0
-        previousFocusedCol: 0
-    }
+    m.lastItemfocused = 0
 end sub
 
 sub initializeFocusedNode()
@@ -103,4 +102,8 @@ end sub
 sub onContentChange()
     m.markupGrid.content = m.top.content
     m.markupGrid.jumpToItem = m.lastItemfocused
+
+    showNoMoviesError = m.top.content = invalid OR m.top.content.getChildCount() = 0
+    m.errorLabel.visible = showNoMoviesError
+    if showNoMoviesError then m.hero.content = createObject("roSGNode", "ContentNode")
 end sub

@@ -19,6 +19,14 @@
             numRows="3"
             rowSpacings="[15]"
             columnSpacings="[15]" />
+
+        <AppLabel id="errorLabel"
+            translation="[900, 501]"
+            fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+            visible="false"
+            fontSize="60"
+            width="600"
+            text="No movies found :(" />
     </children>
 
 </component>
