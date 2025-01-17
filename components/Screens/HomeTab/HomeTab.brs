@@ -9,22 +9,6 @@ sub _bindComponents()
     m.hero = m.top.findNode("hero")
 end sub
 
-sub setupRowList()
-    ' m.rowList.content = createContentNode()
-
-    rowHeights = []
-    rowItemSize = []
-    for each carousel in m.rowList.content.getChildren(-1, 0)
-        rowHeights.push(200)
-        rowItemSize.push([200, 240])
-    end for
-
-    ' m.rowList.update({
-    '     rowHeights: rowHeights
-    '     rowItemSize: rowItemSize
-    ' })
-end sub
-
 sub _bindObservers()
     m.top.observeField("focusedChild", "onFocusedChildChange")
     m.rowList.observeField("focusedChild", "onFocusedChildChange")

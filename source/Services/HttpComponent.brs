@@ -1,5 +1,7 @@
 function HttpComponent()
     return {
+        debug: false
+
         xTransfer: createObject("roUrlTransfer")
 
         port: createObject("roMessagePort")
@@ -17,7 +19,9 @@ function HttpComponent()
                 msg = wait(0, m.port)
                 if msg <> invalid
                     reqUrl = url + "?" + m._buildQueryString(qParams)
-                    ?"req to "reqUrl
+
+                    if m.debug then ?"Http req: "reqUrl
+
                     if msg.getResponseCode() = 200
                         response = {
                             "statusCode": msg.getResponseCode()

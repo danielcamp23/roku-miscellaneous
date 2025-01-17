@@ -2,6 +2,7 @@
 <component name="BaseScreen" extends="Group">
     <script type="text/brightscript" uri="BaseScreen.brs" />
     <interface>
+        <field id="content" type="node" onChange="onContentChange" />
         <field id="_onCreate" type="boolean" onChange="onCreate" alwaysNotify="true" />
         <field id="_onReattach" type="boolean" onChange="onReattach" alwaysNotify="true" />
         <field id="options" type="assocarray" />

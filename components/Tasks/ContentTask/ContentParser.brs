@@ -3,7 +3,6 @@ function parseRecipes(rawContent as object, pageOffset = invalid as object)
     if rawContent = invalid then return carouselNode
 
     if pageOffset = invalid then pageOffset = 0
-    ?"pageOffset "pageOffset
 
     if rawContent.statusCode = 200
         response = rawContent.responseBody

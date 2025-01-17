@@ -17,7 +17,7 @@
                 fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
                 fontSize="60"
                 width="600"
-                maxLines="2"
+                maxLines="4"
                 wrap="true" />
             <AppLabel id="description"
                 fontUri="pkg:/fonts/SofiaSans-Light.ttf"

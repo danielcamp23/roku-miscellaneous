@@ -16,9 +16,6 @@ end sub
 
 sub onItemFocusedChange(event as object)
     itemFocused = event.getData()
-
-    ' ?"itemFocused "itemFocused
-    ' if itemFocused > 3 then m.menuList.jumpToItem = 3
 end sub
 
 

@@ -19,11 +19,9 @@ sub onFocusedChildChange()
     if NOT m.top.hasFocus() then return
 
     if m.focusedNode <> invalid
-        ?"onFocusedChildChange "m.focusedNode.id
         m.focusedNode.setFocus(true)
     else
         initializeFocusedNode()
-        ?"focus initialized to "m.focusedNode.id
     end if
 end sub
 
@@ -32,8 +30,6 @@ sub onCreate()
 end sub
 
 sub onReattach()
-    ?"onReattached screen "m.top.subType()
-    ?"focus "m.focusedNode
     if m.focusedNode <> invalid then m.focusedNode.setFocus(true)
 end sub
 

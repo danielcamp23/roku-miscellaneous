@@ -2,8 +2,7 @@
 <component name="DetailsScreen" extends="BaseScreen">
     <script type="text/brightscript" uri="DetailsScreen.brs" />
     <interface>
-        <!-- <field id="_onCreate" type="boolean" onChange="onCreate" /> -->
-        <field id="content" type="node" />
+       
     </interface>
 
     <children>
