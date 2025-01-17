@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="VideoPlayer" extends="BaseScreen">
+    <script type="text/brightscript" uri="VideoPlayer.brs" />
+
+    <interface>
+        <field id="itemSelected" type="node" />
+    </interface>
+
+    <children>
+        <Video id="videoNode" />
+
+        <!-- Placeholder for controls UI -->
+        <!-- <Group /> -->
+    </children>
+</component>

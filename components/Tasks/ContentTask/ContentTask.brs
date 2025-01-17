@@ -4,42 +4,37 @@ end sub
 
 sub getHomeContent()
     m.contentService = ContentService()
+    contentArgs = m.top.contentArgs
 
-    firstCarouselResponse = m.contentService.getProducts()
-    secondCarouselResponse = m.contentService.getRecipes()
+    contentArgs["nextPageIndex"] = 0
 
-    contentNode = m.top.content
+    firstCarouselResponse = m.contentService.getProducts(contentArgs)
+    secondCarouselResponse = m.contentService.getRecipes(contentArgs)
 
     pageNode = createObject("roSGNode", "ContentNode")
-    productsCarousel = parseProducts(firstCarouselResponse)
-    recipesCarousel = parseRecipes(secondCarouselResponse)
-    ?"productsCarousel.horizontalPaginationData "productsCarousel.horizontalPaginationData
-    ?"recipesCarousel.horizontalPaginationData "recipesCarousel.horizontalPaginationData
+    productsCarousel = parseProducts(firstCarouselResponse, contentArgs.nextPageIndex)
+    recipesCarousel = parseRecipes(secondCarouselResponse, contentArgs.nextPageIndex)
+
     pageNode.appendChild(productsCarousel)
     pageNode.appendChild(recipesCarousel)
 
-    ?"first carousel "pageNode.getChild(0).getChildCount()
-    ?"second carousel "pageNode.getChild(1).getChildCount()
     m.top.content = pageNode
 end sub
 
 sub getNextHorizontalPage()
     m.contentService = ContentService()
+    contentArgs = m.top.contentArgs
 
-    carouselToPaginate = m.top.content
-    carouselToPaginate.queueFields(true)
+    contentArgs["nextPageIndex"] = contentArgs.paginationData.nextPageIndex
 
-    if carouselToPaginate.type = ContentTypeEnums().PRODUCT
-        response = m.contentService.getProducts(carouselToPaginate.horizontalPaginationData)
-        carouselNode = parseProducts(response, carouselToPaginate.horizontalPaginationData)
-        carouselToPaginate.appendChildren(carouselNode.getChildren(-1, 0))
-        carouselToPaginate.horizontalPaginationData = carouselNode.horizontalPaginationData
-    else if carouselToPaginate.type = ContentTypeEnums().RECIPE
-        response = m.contentService.getRecipes(carouselToPaginate.horizontalPaginationData)
-        carouselNode = parseRecipes(response, carouselToPaginate.horizontalPaginationData)
-        carouselToPaginate.appendChildren(carouselNode.getChildren(-1, 0))
-        carouselToPaginate.horizontalPaginationData = carouselNode.horizontalPaginationData
+    carouselNode = invalid
+    if contentArgs.pageType = ContentTypeEnums().PRODUCT
+        response = m.contentService.getProducts(contentArgs.paginationData)
+        carouselNode = parseProducts(response, contentArgs.nextPageIndex)
+    else if contentArgs.pageType = ContentTypeEnums().RECIPE
+        response = m.contentService.getRecipes(contentArgs.paginationData)
+        carouselNode = parseRecipes(response, contentArgs.nextPageIndex)
     end if
 
-    carouselToPaginate.queueFields(false)
+    m.top.content = carouselNode
 end sub

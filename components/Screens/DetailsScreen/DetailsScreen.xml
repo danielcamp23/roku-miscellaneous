@@ -3,28 +3,71 @@
     <script type="text/brightscript" uri="DetailsScreen.brs" />
     <interface>
         <!-- <field id="_onCreate" type="boolean" onChange="onCreate" /> -->
-        <!-- <field id="content" type="node" /> -->
+        <field id="content" type="node" />
     </interface>
 
     <children>
         <Poster id="poster"
-            translation="[300, 200]"
-            width="1520"
-            height="700"
+            translation="[1092, 0]"
+            width="801"
+            height="1080"
             loadDisplayMode="scaleToFill" />
 
-        <LayoutGroup>
+        <LayoutGroup
+            translation="[15, 21]"
+            itemSpacings="[21, 30, 12]">
             <AppLabel id="title"
                 fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
                 fontSize="72"
-                width="1200"
-                maxLines="2" />
+                width="1070"
+                maxLines="2"
+                wrap="true" />
             <AppLabel id="description"
+                fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
+                fontSize="27"
+                width="1070"
+                maxLines="10"
+                wrap="true" />
+            <AppLabel id="releaseDate"
                 fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
                 fontSize="60"
                 width="1200"
                 maxLines="2" />
+            <LayoutGroup
+                layoutDirection="horizontal"
+                itemSpacings="[9]">
+                <AppLabel
+                    fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
+                    fontSize="24"
+                    text="Actors:"
+                    width="100" />
+                <AppLabel id="actorList"
+                    fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                    fontSize="30"
+                    width="300"
+                    maxLines="10"
+                    wrap="true" />
             </LayoutGroup>
+            <LayoutGroup
+                layoutDirection="horizontal"
+                itemSpacings="[9]">
+                <AppLabel
+                    fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
+                    fontSize="24"
+                    text="Director:"
+                    width="100" />
+                <AppLabel id="director"
+                    fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                    fontSize="30"
+                    width="300"
+                    maxLines="10"
+                    wrap="true" />
+            </LayoutGroup>
+
+            <Button id="videoCTA"
+                text="Watch"
+                minWidth="300" />
+        </LayoutGroup>
     </children>
 
 </component>

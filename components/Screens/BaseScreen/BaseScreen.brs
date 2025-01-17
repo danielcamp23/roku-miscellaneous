@@ -32,6 +32,8 @@ sub onCreate()
 end sub
 
 sub onReattach()
+    ?"onReattached screen "m.top.subType()
+    ?"focus "m.focusedNode
     if m.focusedNode <> invalid then m.focusedNode.setFocus(true)
 end sub
 

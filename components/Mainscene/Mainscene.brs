@@ -34,14 +34,13 @@ sub initializeApp()
     ' TODO: Add initialization step here. HTTP requst to get entry point, feature flags, etc
 
     ' initialSection = "SearchTab"
-    initialSection = "SearchTab"
+    initialSection = "HomeTab"
     screenConfig = {}
     navigateOptions = {
         initialSection: initialSection
         screenConfig: screenConfig
     }
 
-    ' m.router.navigateToSection(navigateOptions)
     m.router.navigateToEntryPoint(navigateOptions)
 end sub
 

@@ -1,33 +1,57 @@
 sub init()
     m.contentTask = createObject("roSGNode", "ContentTask")
+
+    m.carouselIndex = 0
+    m.sourceScreen = invalid
 end sub
 
-sub getHomeContent(screenSection as object)
-    m.contentTask.unobserveField("content")
-    m.contentTask.observeField("content", "onHomeContentChange")
+sub runTask(functionName as string, contentArgs as object)
+    callbackMap = {
+        "getHomeContent": "onHomeContentResponse"
+        "getNextHorizontalPage": "onNextHorizontalPageResponse"
+    }
 
-    m.screenSection = screenSection
-    m.contentTask.functionName = "getHomeContent"
+    m.contentTask.unobserveField("content")
+    m.contentTask.observeField("content", callbackMap[functionName])
+
+    m.contentTask.functionName = functionName
+    m.contentTask.contentArgs = contentArgs
     m.contentTask.control = "RUN"
 end sub
 
-sub getNextHorizontalPage(carouselToPaginate as object)
-    if NOT carouselToPaginate.horizontalPaginationData.hasNextPage then return
+sub getHomeContent(sourceScreen as object)
+    m.sourceScreen = sourceScreen
 
-    m.contentTask.unobserveField("content")
-    m.carouselToPaginate = carouselToPaginate
-
-    m.contentTask.functionName = "getNextHorizontalPage"
-    m.contentTask.content = carouselToPaginate
-    m.contentTask.control = "RUN"
+    runTask("getHomeContent", {})
 end sub
 
-sub onHomeContentChange(event as object)
-    m.screenSection.content = event.getData()
+sub getNextHorizontalPage(sourceScreen as object, paginationData as object, pageType as object, carouselIndex as object)
+    if m.contentTask.state = "run" then return
+    if NOT TypeUtils_isValidString(pageType) then return
+    if NOT TypeUtils_isValidInt(carouselIndex) then return
+    if NOT paginationData.hasNextPage then return
+
+
+    contentArgs = {
+        pageType: pageType
+        paginationData: paginationData
+    }
+
+    m.sourceScreen = sourceScreen
+    m.carouselIndex = carouselIndex
+    runTask("getNextHorizontalPage", contentArgs)
 end sub
 
-sub searchMovie(searchQuery as string)
-    m.searchTask.functionName = "searchTaskMovie"
-    m.searchTask.searchQuery = searchQuery
-    m.searchTask.control = "RUN"
+sub onHomeContentResponse()
+    m.sourceScreen.content = m.contentTask.content
+end sub
+
+sub onNextHorizontalPageResponse()
+    content = m.contentTask.content
+
+    if content.getChildCount() > 0
+        paginatedCarousel = m.sourceScreen.content.getChild(m.carouselIndex)
+        paginatedCarousel.appendChildren(content.getChildren(-1, 0))
+        paginatedCarousel.horizontalPaginationData = content.horizontalPaginationData
+    end if
 end sub

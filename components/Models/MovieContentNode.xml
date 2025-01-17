@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="MovieContentNode" extends="ContentNode">
+    <interface>
+        <field id="title" type="string" />
+        <field id="description" type="string" />
+        <field id="actors" type="roarray" />
+        <field id="director" type="string" />
+    </interface>
+</component>

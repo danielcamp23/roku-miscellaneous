@@ -6,6 +6,7 @@ sub init()
 end sub
 
 sub _bindComponents()
+    m.hero = m.top.findNode("hero")
     m.keyboard = m.top.findNode("keyboard")
     m.markupGrid = m.top.findNode("markupGrid")
 end sub
@@ -34,7 +35,7 @@ sub initializeFocusedNode()
 end sub
 
 sub onTimerEvent()
-    m.searchRepo.callFunc("searchMovie", m.keyboard.text, m.top)
+    m.searchRepo.callFunc("searchMovies", m.top, m.keyboard.text)
 end sub
 
 sub onItemFocusedChange(event as object)
@@ -45,8 +46,10 @@ sub onItemFocusedChange(event as object)
 
     if focusedRow >= availableRows - 1 ' If we are 3 rows above the last one, get next page
         m.lastItemfocused = itemfocused
-        m.searchRepo.callFunc("getNextPage", m.markupGrid.content)
+        m.searchRepo.callFunc("getNextPage", m.top, m.markupGrid.content.horizontalPaginationData)
     end if
+
+    m.hero.content = m.markupGrid.content.getChild(itemfocused)
 end sub
 
 sub onItemSelectedChange(event as object)
@@ -67,6 +70,11 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
     handled = false
     if key = "back"
+        if m.markupGrid.isInFocusChain()
+            m.keyboard.setFocus(true)
+            m.focusedNode = m.keyboard
+            handled = true
+        end if
     else if key = "right"
         if m.keyboard.isInFocusChain()
             m.markupGrid.setFocus(true)
@@ -95,5 +103,4 @@ end sub
 sub onContentChange()
     m.markupGrid.content = m.top.content
     m.markupGrid.jumpToItem = m.lastItemfocused
-    ?"search tab change **"
 end sub

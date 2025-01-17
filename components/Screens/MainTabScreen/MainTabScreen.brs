@@ -49,7 +49,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
     handled = false
     if key = "back"
-        ?"press back in home screen"
+        if m.container.isInFocusChain()
+            m.menu.setFocus(true)
+            handled = true
+        end if
     else if key = "left"
         if m.container.isInFocusChain()
             m.menu.setFocus(true)
@@ -57,7 +60,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
         handled = true
     else if key = "right"
-        ?"key is rigght"
         if m.menu.isInFocusChain()
             m.container.getChild(0).setFocus(true)
         end if

@@ -2,11 +2,11 @@ sub init()
     _bindComponents()
     _bindObservers()
     _initLocalVariables()
-    ' _setupView()
 end sub
 
 sub _bindComponents()
     m.rowList = m.top.findNode("rowList")
+    m.hero = m.top.findNode("hero")
 end sub
 
 sub setupRowList()
@@ -52,7 +52,9 @@ sub onRowItemFocusedChange(event as object)
     if m.itemFocused.previousFocusedRow = focusedRow
         focusedRowNode = m.rowList.content.getChild(focusedRow)
         if m.itemFocused.previousFocusedCol < focusedCol AND (focusedCol >= focusedRowNode.getChildCount() - 2)
-            m.contentRepo.callFunc("getNextHorizontalPage", focusedRowNode)
+            paginationData = focusedRowNode.horizontalPaginationData
+            pageType = focusedRowNode.type
+            m.contentRepo.callFunc("getNextHorizontalPage", m.top, paginationData, pageType, focusedRow)
         end if
     else if m.itemFocused.previousFocusedRow < focusedRow and false
         m.contentRepo.callFunc("getNextVerticalPage", m.rowList.content)
@@ -62,6 +64,8 @@ sub onRowItemFocusedChange(event as object)
         previousFocusedRow: focusedRow
         previousFocusedCol: focusedCol
     }
+
+    m.hero.content = m.rowList.content.getChild(focusedRow).getChild(focusedCol)
 end sub
 
 sub onFocusedChildChange()

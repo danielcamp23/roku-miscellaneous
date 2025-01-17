@@ -1,20 +1,18 @@
 sub init()
-    m.top.functionName = "searchMovie"
+
 end sub
 
-sub searchMovie()
+sub searchMovies()
     searchService = SearchService()
-    searchQuery = m.top.searchQuery
+    searchArgs = m.top.searchArgs
 
-    searchArgs = {
-        nextPageIndex: 1
-        searchQuery: searchQuery
-    }
+    ' Add page argument to the search
+    searchArgs["nextPageIndex"] = 1
 
     moviesResponse = searchService.searchMovies(searchArgs)
 
     pageNode = createObject("roSGNode", "CarouselContentNode")
-    moviesContentNode = parseMovies(moviesResponse)
+    moviesContentNode = parseMovies(moviesResponse, searchArgs.nextPageIndex)
     pageNode.appendChildren(moviesContentNode.getChildren(-1, 0))
     pageNode.horizontalPaginationData = moviesContentNode.horizontalPaginationData
 
@@ -23,17 +21,23 @@ end sub
 
 sub getNextPage()
     searchService = SearchService()
-    searchQuery = m.top.searchQuery
-
-    gridContent = m.top.content
+    searchArgs = m.top.searchArgs
 
     searchArgs = {
-        nextPageIndex: gridContent.horizontalPaginationData.nextPageIndex
-        searchQuery: searchQuery
+        nextPageIndex: searchArgs.paginationData.nextPageIndex
+        searchQuery: searchArgs.searchQuery
     }
 
     moviesResponse = searchService.searchMovies(searchArgs)
-    moviesContentNode = parseMovies(moviesResponse, gridContent.horizontalPaginationData)
-    gridContent.appendChildren(moviesContentNode.getChildren(-1, 0))
-    gridContent.horizontalPaginationData = moviesContentNode.horizontalPaginationData
+    moviesContentNode = parseMovies(moviesResponse, searchArgs.nextPageIndex)
+    m.top.content = moviesContentNode
+end sub
+
+sub getMovieDetails()
+    searchService = SearchService()
+    searchArgs = m.top.searchArgs
+
+    detailsResponse = searchService.getMovieDetails(searchArgs)
+    movieDetailsNode = parseMovie(detailsResponse)
+    m.top.content = movieDetailsNode
 end sub

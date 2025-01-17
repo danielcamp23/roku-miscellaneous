@@ -17,6 +17,9 @@
             rowItemSize="[[300, 420]]"
             rowItemSpacing="[ [30, 0] ]"
             itemSpacing="[0, 60]" />
+
+        <ContentHero id="hero"
+            translation="[603, 99]"/>
     </children>
 
 </component>

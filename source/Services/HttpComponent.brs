@@ -16,6 +16,8 @@ function HttpComponent()
             while true
                 msg = wait(0, m.port)
                 if msg <> invalid
+                    reqUrl = url + "?" + m._buildQueryString(qParams)
+                    ?"req to "reqUrl
                     if msg.getResponseCode() = 200
                         response = {
                             "statusCode": msg.getResponseCode()

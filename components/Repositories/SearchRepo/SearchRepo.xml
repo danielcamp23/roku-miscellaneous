@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <component name="SearchRepo" extends="ContentNode">
     <script type="text/brightscript" uri="SearchRepo.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils/TypeUtils.brs" />
     <interface>
         <field id="content" type="node" />
-        <function name="searchMovie" />
+        <function name="searchMovies" />
         <function name="getNextPage" />
+        <function name="getMovieDetails" />
     </interface>
 </component>

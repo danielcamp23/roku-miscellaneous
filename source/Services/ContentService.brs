@@ -2,7 +2,7 @@ function ContentService()
     return {
         httpComponent: HttpComponent()
 
-        getProducts: function(args = {} as object)
+        getProducts: function(args as object)
             nextPageIndex = args.nextPageIndex
             if nextPageIndex = invalid then nextPageIndex = 0
 
@@ -16,7 +16,7 @@ function ContentService()
             return m.httpComponent.get(url, headers, qParams)
         end function
 
-        getRecipes: function(args = {} as object)
+        getRecipes: function(args as object)
             nextPageIndex = args.nextPageIndex
             if nextPageIndex = invalid then nextPageIndex = 0
 

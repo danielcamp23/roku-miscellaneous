@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <component name="ContentRepo" extends="ContentNode">
     <script type="text/brightscript" uri="ContentRepo.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils/TypeUtils.brs" />
     <interface>
         <field id="content" type="node" />
         <function name="getHomeContent" />

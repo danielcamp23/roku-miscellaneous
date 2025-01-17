@@ -1,3 +1,5 @@
+' This components handles the navigation between screens, keeping only one screen rendered at a time,
+' to avoid excesive graphic resources consumption, caching the views not shown
 function router(screenContainer as object) as object
     if m.router <> invalid then return m.router
 
@@ -80,5 +82,3 @@ function _goBackToPreviousScreen(navigateOptions = {} as object) as object
     ' Return true if there are still screens in the stack
     return m.screenStack.count() > 0
 end function
-
-' function _getCurrentScreen()

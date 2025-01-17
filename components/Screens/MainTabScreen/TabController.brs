@@ -1,3 +1,6 @@
+' The tab controller's stack is not an actual stack as the router's
+' The purpose of this "stack" is to recycle/cache the tabs created
+
 function TabController(sectionContainer as object) as object
     if m.tabController <> invalid then return m.tabController
 
@@ -17,17 +20,21 @@ end function
 function _navigateTosection(navigateOptions as object)
     sectionName = navigateOptions.sectionToLoad
 
-    m.sectionContainer.removeChildrenIndex(-1, 0)
+    m.sectionContainer.removeChildrenIndex(m.sectionContainer.getChildCount(), 0)
 
     sectionToShow = invalid
     for each section in m.sectionStack
-        if lCase(section.name) = lCase(sectionName)
+        if lCase(section.subtype()) = lCase(sectionName)
             sectionToShow = section
             exit for
         end if
     end for
 
-    if sectionToShow = invalid then sectionToShow = createObject("roSGNode", sectionName)
+    if sectionToShow = invalid
+        sectionToShow = createObject("roSGNode", sectionName)
+        m.sectionStack.push(sectionToShow)
+    end if
+
     m.sectionContainer.appendChild(sectionToShow)
     sectionToShow._onCreate = true
     sectionToShow.setFocus(true)

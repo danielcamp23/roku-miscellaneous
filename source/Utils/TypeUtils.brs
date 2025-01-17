@@ -6,9 +6,18 @@ function TypeUtils_isString(value as object) as boolean
     return TypeUtils_implementsInterface(value, "ifString")
 end function
 
+function TypeUtils_isInt(value as object) as boolean
+    return TypeUtils_implementsInterface(value, "ifInt")
+end function
+
 function TypeUtils_isValidString(value as object) as boolean
     return TypeUtils_isString(value) AND value <> ""
 end function
+
+function TypeUtils_isValidInt(value as object) as boolean
+    return TypeUtils_isInt(value)
+end function
+
 
 function TypeUtils_isStringable(value as object) as boolean
     return TypeUtils_implementsInterface(value, "ifToStr")

@@ -7,13 +7,21 @@
     </interface>
     <children>
         <Poster id="image"
-            width="1200"
+            translation="[600, 0]"
+            width="600"
             height="402"
-            loadDisplayMode="scaleToFill" />
+            loadDisplayMode="scaleToFit" />
 
         <LayoutGroup>
-            <Label id="title" />
-            <Label id="description" />
+            <AppLabel id="title"
+                fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                fontSize="60"
+                width="600"
+                maxLines="2"
+                wrap="true" />
+            <AppLabel id="description"
+                fontUri="pkg:/fonts/SofiaSans-Light.ttf"
+                fontSize="30" />
         </LayoutGroup>
     </children>
 
