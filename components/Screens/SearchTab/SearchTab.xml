@@ -8,7 +8,7 @@
         <DynamicMiniKeyboard id="keyboard"
             translation="[0, 270]" />
 
-        <ContentHero id="hero"
+        <VideoHero id="hero"
             translation="[603, 99]"/>
 
         <MarkupGrid id="markupGrid"

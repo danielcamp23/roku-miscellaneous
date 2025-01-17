@@ -10,8 +10,16 @@ function parseRecipes(rawContent as object, pageOffset = invalid as object)
 
         for each recipe in response.recipes
             item = carouselNode.createChild("RecipeContentNode")
+
+            instructions = recipe.instructions
+            if instructions = invalid then instructions = []
+
+            ingredients = recipe.ingredients
+            if ingredients = invalid then ingredients = []
+
             item.title = recipe.name
-            item.description = recipe.instructions.join(" ")
+            item.instructions = instructions
+            item.ingredients = ingredients
             item.fhdPosterUrl = recipe.image
             item.type = carouselNode.type
         end for
@@ -48,11 +56,21 @@ function parseProducts(rawContent as object, pageOffset as object)
 
         parentNode.type = ContentTypeEnums().PRODUCT
 
-        for each recipe in response.products
+        for each product in response.products
             item = parentNode.createChild("ProductContentNode")
-            item.title = recipe.title
-            item.description = recipe.description
-            item.fhdPosterUrl = recipe.thumbnail
+
+            reviews = product.reviews
+            if reviews = invalid then reviews = []
+            comments = []
+            for each review in reviews
+                comments.push(review.comment)
+            end for
+
+            item.title = product.title
+            item.description = product.description
+            item.fhdPosterUrl = product.thumbnail
+            item.comments = comments
+            item.availabilityStatus = product.availabilityStatus
             item.type = parentNode.type
         end for
 

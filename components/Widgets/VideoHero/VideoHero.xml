@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="VideoHero" extends="Group">
+    <script type="text/brightscript" uri="VideoHero.brs" />
+    <script type="text/brightscript" uri="pkg:/source/enums/ContentTypeEnum.brs" />
+    <interface>
+        <field id="content" type="node" onChange="onContentChange" />
+    </interface>
+    <children>
+        <Poster id="image"
+            translation="[600, 0]"
+            width="600"
+            height="402"
+            loadDisplayMode="scaleToFit" />
+
+        <LayoutGroup>
+            <AppLabel id="title"
+                fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                fontSize="60"
+                width="600"
+                maxLines="4"
+                wrap="true" />
+            <AppLabel id="description"
+                fontUri="pkg:/fonts/SofiaSans-Light.ttf"
+                fontSize="30" />
+        </LayoutGroup>
+    </children>
+
+</component>

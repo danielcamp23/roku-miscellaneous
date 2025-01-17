@@ -19,7 +19,7 @@
             itemSpacing="[0, 60]" />
 
         <ContentHero id="hero"
-            translation="[603, 99]"/>
+            translation="[762, 99]"/>
     </children>
 
 </component>

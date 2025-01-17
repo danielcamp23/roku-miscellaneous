@@ -12,16 +12,44 @@
             height="402"
             loadDisplayMode="scaleToFit" />
 
-        <LayoutGroup>
+        <LayoutGroup
+            itemSpacings="[15]">
             <AppLabel id="title"
                 fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
                 fontSize="60"
-                width="600"
-                maxLines="4"
+                width="900"
+                maxLines="2"
                 wrap="true" />
             <AppLabel id="description"
                 fontUri="pkg:/fonts/SofiaSans-Light.ttf"
-                fontSize="30" />
+                width="900"
+                fontSize="24"
+                maxLines="4"
+                wrap="true" />
+            <LayoutGroup
+                layoutDirection="horizontal"
+                itemSpacings="[9]">
+                <AppLabel id="firstColumnLabel"
+                    fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
+                    fontSize="21"
+                    width="111" />
+                <AppLabel id="ingredientList"
+                    fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                    fontSize="27"
+                    width="330"
+                    maxLines="18"
+                    wrap="true" />
+                <AppLabel id="secondColumnLabel"
+                    fontUri="pkg:/fonts/SofiaSans-Regular.ttf"
+                    fontSize="21"
+                    width="111" />
+                <AppLabel id="instructionList"
+                    fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                    fontSize="27"
+                    width="450"
+                    maxLines="18"
+                    wrap="true" />
+            </LayoutGroup>
         </LayoutGroup>
     </children>
 

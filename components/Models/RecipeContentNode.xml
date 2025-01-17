@@ -2,5 +2,7 @@
 <component name="RecipeContentNode" extends="ContentNode">
     <interface>
         <field id="type" type="string" />
+        <field id="instructions" type="roarray" />
+        <field id="ingredients" type="roarray" />
     </interface>
 </component>

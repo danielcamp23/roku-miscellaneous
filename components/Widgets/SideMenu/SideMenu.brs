@@ -6,6 +6,7 @@ end sub
 
 sub _bindComponents()
     m.menuList = m.top.findNode("menuList")
+    m.trAnimation = m.top.findNode("trAnimation")
 end sub
 
 sub _bindObservers()
@@ -45,7 +46,7 @@ sub _setupView()
     m.menuList.focusedTargetSet = [ focusedTargetSet1, focusedTargetSet2, focusedTargetSet3 ]
     m.menuList.unfocusedTargetSet = unfocusedTargetSet
     m.menuList.targetSet = focusedTargetSet1
-    m.menuList.showTargetRects = true
+    ' m.menuList.showTargetRects = true
 
     m.menuList.content = setupMenuItems()
 end sub
@@ -120,5 +121,10 @@ function setupMenuItems() as object
 end function
 
 sub onFocusedChildChange()
-    if m.top.hasFocus() then m.menuList.setFocus(true)
+    if m.top.hasFocus()
+        m.menuList.setFocus(true)
+        m.trAnimation.control = "run"
+    else
+        m.trAnimation.control = "run"
+    end if
 end sub

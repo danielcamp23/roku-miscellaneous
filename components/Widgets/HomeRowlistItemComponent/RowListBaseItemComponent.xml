@@ -7,7 +7,19 @@
     </interface>
     <children>
         <LayoutGroup id="container"
-            itemSpacings="[9, 3]"/>
+            itemSpacings="[9, 3]" >
+            <Poster id="thumbnail"
+                translation="[600, 0]"
+                width="300"
+                height="300"
+                loadDisplayMode="scaleToFit" />
+            <AppLabel id="title"
+                fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
+                fontSize="24"
+                width="300"
+                maxLines="2"
+                wrap="true" />
+        </LayoutGroup>
     </children>
 
 </component>
