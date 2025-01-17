@@ -48,7 +48,7 @@ This has a MarkupGrid. The pagination adds new items in the grid, every time the
 TODO
 
 ## Services
-Services are the components responsible for the data fetching. The way they are coded allow to make asynchronous http calls in a synchronous manner, which is more readble and understandable. Similar to an await instruction execution
+Services are the components responsible for the data fetching. The way they are coded allow to make asynchronous http calls in a synchronous manner, which is more readable and understandable. Similar to an await instruction execution in JavaScript
 
 ## Content Tasks
 Content tasks rely on Services to fetch http data. Once the data is ready they are responsible to parse the data and build the data models that well be fed to the app
