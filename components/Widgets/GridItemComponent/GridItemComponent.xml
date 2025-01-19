@@ -6,8 +6,8 @@
     </interface>
     <children>
         <Poster id="thumbnail"
-            width="280"
-            height="320"
+            loadWidth="280"
+            loadHeight="320"
             loadDisplayMode="scaleToFill" />
     </children>
 

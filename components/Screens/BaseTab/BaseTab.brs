@@ -1,13 +1,4 @@
+' Keep common functionality of tabs in this component
 sub init()
-
-end sub
-
-' Override in extended components
-sub onContentChange()
-
-end sub
-
-' Override in extended components
-sub onCreate()
 
 end sub

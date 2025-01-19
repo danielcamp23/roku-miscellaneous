@@ -8,6 +8,7 @@ end sub
 
 sub _bindComponents()
     m.screenContainer = m.top.findNode("screenContainer")
+    m.loadingIndicator = m.top.findNode("loadingIndicator")
 end sub
 
 
@@ -15,9 +16,11 @@ sub initializeGlobalField()
     m.global.addField("contentRepo", "node", false)
     m.global.addField("searchRepo", "node", false)
     m.global.addField("navigateTo", "assocarray", false)
+    m.global.addField("toggleLoadingSpinner", "boolean", false)
 
-    ' Global field observers
+    ' Global field node observers
     m.global.observeField("navigateTo", "onNavigateToChange")
+    m.global.observeField("toggleLoadingSpinner", "onLoadingSpinnerToggle")
 end sub
 
 sub initializeRepos()
@@ -53,7 +56,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
     handled = false
     if key = "back"
-        ?"event got to main scene"
         handled = m.router.goBackToPreviousScreen()
     else if key = "left"
         ' if m.
@@ -67,4 +69,16 @@ sub onNavigateToChange(event as object)
     navigateToOptions = event.getData()
 
     m.router.navigateToScreen(navigateToOptions)
+end sub
+
+sub onLoadingSpinnerToggle(event as object)
+    toggleLoadingSpinner = event.getData()
+
+    if toggleLoadingSpinner
+        m.loadingIndicator.visible = true
+        m.loadingIndicator.control = "start"
+    else
+        m.loadingIndicator.visible = false
+        m.loadingIndicator.control = "stop"
+    end if
 end sub

@@ -2,12 +2,16 @@
 <component name="BaseScreen" extends="Group">
     <script type="text/brightscript" uri="BaseScreen.brs" />
     <interface>
+        <!-- Lifecycle fields -->
         <field id="_onCreate" type="boolean" onChange="onCreate" alwaysNotify="true" />
         <field id="_onPause" type="boolean" onChange="onPause" alwaysNotify="true" />
         <field id="_onResume" type="boolean" onChange="onResume" alwaysNotify="true" />
+
+        <!-- Used for API data used to render UI elements -->
         <field id="content" type="node" />
+
+        <!-- Used to pass config data to screens -->
         <field id="options" type="assocarray" />
-        <field id="focusedNode" type="node" />
     </interface>
 
     <children>

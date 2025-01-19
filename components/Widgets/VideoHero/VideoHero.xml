@@ -8,8 +8,8 @@
     <children>
         <Poster id="image"
             translation="[600, 0]"
-            width="600"
-            height="402"
+            loadWidth="600"
+            loadHeight="402"
             loadDisplayMode="scaleToFit" />
 
         <LayoutGroup>

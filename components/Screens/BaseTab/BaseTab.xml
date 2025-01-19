@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <component name="BaseTab" extends="BaseScreen">
     <script type="text/brightscript" uri="BaseTab.brs" />
-
-    <interface>
-        <!-- <field id="content" type="node" onChange="onContentChange" /> -->
-    </interface>
 </component>

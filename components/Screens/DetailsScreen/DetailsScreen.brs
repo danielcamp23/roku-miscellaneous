@@ -47,6 +47,7 @@ sub loadContent()
     m.description.text = videoSource.description
     m.poster.uri = videoSource.fhdPosterUrl
 
+    startLoadingSpinner()
     getMovieDetails(videoSource.id)
 end sub
 
@@ -57,7 +58,6 @@ sub getMovieDetails(movieId as object)
 end sub
 
 sub onContentChange()
-    ?"on content change in details screen"
     content = m.top.content
 
     m.poster.uri = content.fhdPosterUrl
@@ -65,10 +65,14 @@ sub onContentChange()
     m.description.text = content.description
     m.actorList.text = content.actors.join(chr(10))
     m.director.text = content.director
+
+    setContentLoaded()
+    m.videoCTA.setFocus(true)
 end sub
 
 sub initializeFocusedNode()
-    m.videoCTA.setFocus(true)
+    ' Do not set the focus until the content is loaded
+    ' m.videoCTA.setFocus(true)
     m.focusedNode = m.videoCTA
 end sub
 

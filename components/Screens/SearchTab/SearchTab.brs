@@ -29,12 +29,19 @@ sub _initLocalVariables()
     m.lastItemfocused = 0
 end sub
 
+sub loadContent()
+    ' Since there is no initial content to load in this tab, set the content as loaded
+    ' to turn off the activity indicator
+    setContentLoaded()
+end sub
+
 sub initializeFocusedNode()
     m.keyboard.setFocus(true)
     m.focusedNode = m.keyboard
 end sub
 
 sub onTimerEvent()
+    startLoadingSpinner()
     m.searchRepo.callFunc("searchMovies", m.top, m.keyboard.text)
 end sub
 
@@ -101,6 +108,8 @@ sub onTextChange()
 end sub
 
 sub onContentChange()
+    stopLoadingSpinner()
+
     m.markupGrid.content = m.top.content
     m.markupGrid.jumpToItem = m.lastItemfocused
 

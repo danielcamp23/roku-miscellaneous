@@ -25,7 +25,7 @@ sub _initLocalVariables()
     }
 end sub
 
-sub onCreate()
+sub loadContent()
     m.contentRepo.callFunc("getHomeContent", m.top)
 end sub
 

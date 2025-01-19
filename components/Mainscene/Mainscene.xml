@@ -2,10 +2,13 @@
 <component name="MainScene" extends="Scene" >
     <script type="text/brightscript" uri="MainScene.brs" />
     <script type="text/brightscript" uri="Router.brs" />
-    <interface>
-        <!-- set possible values here -->
-    </interface>
+
     <children>
         <Group id="screenContainer" />
+        <BusySpinner id="loadingIndicator"
+            uri="pkg:/assets/images/icons/loading-indicator.png"
+            control="stop"
+            visible="false"
+            translation="[930, 510]" />
     </children>
 </component>

@@ -10,8 +10,8 @@
             itemSpacings="[9, 3]" >
             <Poster id="thumbnail"
                 translation="[600, 0]"
-                width="300"
-                height="300"
+                loadWidth="300"
+                loadHeight="300"
                 loadDisplayMode="scaleToFit" />
             <AppLabel id="title"
                 fontUri="pkg:/fonts/SofiaSans-Bold.ttf"
